@@ -1,0 +1,62 @@
+@import url("https://fonts.google.com/specimen/Nunito#standard-styles");
+@import "vars";
+
+body {
+  font-size: $base-fontsize;
+  background-color: $primary-color;
+}
+
+.box-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%box {
+  $size: 300px;
+
+  width: $size;
+  height: $size;
+  border: 1px red solid;
+  border-radius: 6px;
+  background-color: lighten($primary-color, 5);
+  margin: 10px;
+
+  @import "media";
+
+  &:hover {
+    background-color: lighten($primary-color, 50);
+  }
+}
+
+.box1 {
+  @extend %box;
+}
+
+.box2 {
+  @extend %box;
+  background-color: lighten($primary-color, 10);
+}
+
+.box3 {
+   @extend %box;
+   background-color: lighten($primary-color, 20);
+ }
+
+h1 {
+  font-size: $base-fontsize + 10;
+}
+h2 {
+  font-size: $base-fontsize + 5;
+}
+h3 {
+  font-size: $base-fontsize + 2;
+}
+
+h4 {
+  font-size: $base-fontsize;
+}
+
+h5 {
+  font-size: $base-fontsize - 2;
+}

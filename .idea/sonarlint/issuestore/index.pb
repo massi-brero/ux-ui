@@ -17,3 +17,5 @@ I
 projects/pwa_1/styles.css,5/8/5870a1b41fbba7b26d2426c7cbd08f378fba4fac
 I
 projects/pwa_1/index.html,e/b/eb7a01ef7cb3bba41a496961bc658e2ec177bfd7
+C
+projects/.gitignore,e/2/e218b910023ce22d7e951da91717f4d339af4bf4
