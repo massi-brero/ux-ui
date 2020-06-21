@@ -1,2 +1,17 @@
+_mixins.scss:22 DEBUG: Value $box: 1
+WARNING: box does not have a valid value - value is 1
+         on line 37 of _mixins.scss, in `box'
+         from line 34 of style.scss
+
+_mixins.scss:22 DEBUG: Value $box: 2
+WARNING: box does not have a valid value - value is 2
+         on line 37 of _mixins.scss, in `box'
+         from line 39 of style.scss
+
+_mixins.scss:22 DEBUG: Value $box: 4
+WARNING: box does not have a valid value - value is 4
+         on line 37 of _mixins.scss, in `box'
+         from line 44 of style.scss
+
       write ../css/style.css
       write ../css/style.css.map

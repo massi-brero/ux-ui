@@ -1,0 +1,55 @@
+@mixin options($radius: 10px, $bgColor: white) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+
+  background-color: $bgColor;
+}
+
+@mixin transition($property: background, $duration: 500ms, $function: ease) {
+  -webkit-transition: $property $duration $function;
+  -moz-transition: $property $duration $function;
+  -o-transition: $property $duration $function;
+  transition: $property $duration $function;
+}
+
+@mixin base-font {
+  font-size: 16px;
+}
+
+@mixin box($box: 1) {
+
+  @debug "Value $box: #{$box}";
+
+  //$border-radius: null;
+  //$bgColor: null;
+
+  $border-radius: 10px;
+  $bgColor: lighten($primary-color, 5);
+  @include transition(background, 200ms, ease-in);
+
+  /**
+    @warn does not stop the compiling process
+    @error does does stop the compiling process
+   */
+  @if ($box < 1 OR $box > 3) {
+    //@warn "box does not have a valid value - value is #{$box}"
+    @error "box does not have a valid value - value is #{$box}"
+  }
+
+  @if ($box == 2)
+  {
+    $border-radius: 20px;
+    $bgColor: lighten($primary-color, 20);
+    @include transition(background, 500ms, ease-out);
+  } @else if($box == 3) {
+    $border-radius: 40px;
+    $bgColor: lighten($primary-color, 40);
+    @include transition(background, 1000ms, ease-out);
+  } @else {
+
+    // not used
+  }
+
+  @include options($border-radius, $bgColor);
+}
