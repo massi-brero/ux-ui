@@ -1,3 +1,4 @@
+//using prefixes
 @mixin options($radius: 10px, $bgColor: white) {
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
@@ -24,15 +25,16 @@
   //$border-radius: null;
   //$bgColor: null;
 
-  $border-radius: 10px;
-  $bgColor: lighten($primary-color, 5);
-  @include transition(background, 200ms, ease-in);
+  $border-radius: null;
+  $bgColor: null;
 
-  /**
-    @warn does not stop the compiling process
-    @error does does stop the compiling process
+
+  /*!
+   * outputs
+   * @warn does not stop the compiling process
+   * @error does does stop the compiling process
    */
-  @if ($box < 1 OR $box > 3) {
+  @if $box < 1 or $box > 3 {
     //@warn "box does not have a valid value - value is #{$box}"
     @error "box does not have a valid value - value is #{$box}"
   }
@@ -41,14 +43,16 @@
   {
     $border-radius: 20px;
     $bgColor: lighten($primary-color, 20);
+    // we can use minis in mixins!
     @include transition(background, 500ms, ease-out);
   } @else if($box == 3) {
     $border-radius: 40px;
     $bgColor: lighten($primary-color, 40);
     @include transition(background, 1000ms, ease-out);
   } @else {
-
-    // not used
+    $border-radius: 10px;
+    $bgColor: lighten($primary-color, 5);
+    @include transition(background, 200ms, ease-in);
   }
 
   @include options($border-radius, $bgColor);

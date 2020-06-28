@@ -1,7 +1,11 @@
+//!   _ = not to be compiled as own source
 @import url("https://fonts.google.com/specimen/Nunito#standard-styles");
-@import "vars";
+@import "vars"; // no "_" needed
 @import "mixins";
 
+/*!
+ * Variables baby
+ */
 body {
   font-size: $base-fontsize;
   background-color: $primary-color;
@@ -13,37 +17,10 @@ body {
   justify-content: center;
 }
 
-%box {
-  $size: 300px;
 
-  width: $size;
-  height: $size;
-  border: 1px red solid;
-  background-color: lighten($primary-color, 5);
-  margin: 10px;
-
-  @import "media";
-
-  &:hover {
-    background-color: lighten($primary-color, 50);
-  }
-}
-
-.box1 {
-  @extend %box;
-  @include box();
-}
-
-.box2 {
-  @extend %box;
-  @include box(2);
-}
-
-.box3 {
-  @extend %box;
-  @include box(4);
-}
-
+/*!
+ * calculations
+ */
 h1 {
   font-size: $base-fontsize + 10;
 }
@@ -60,4 +37,93 @@ h4 {
 
 h5 {
   font-size: $base-fontsize - 2;
+}
+
+/*!
+ * Base Class
+ */
+%box {
+  $size: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: $size;
+  height: $size;
+  border: 1px red solid;
+  background-color: lighten($primary-color, 5);
+  margin: 10px;
+
+  @import "media";
+
+  &:hover {
+    background-color: lighten($primary-color, 50);
+  }
+}
+
+
+/*
+ * For 1
+ */
+@for $i from 1 through 3 {
+  .box#{$i} {
+    @extend %box;
+    @include box($i);
+  }
+}
+
+/**
+ * For 2
+ */
+@for $i from 1 through 10 {
+
+  $lighter: $i * 5;
+  .primary-color-#{$i} {
+    color: lighten($primary-color, $lighter);
+  }
+}
+
+/*!
+ * while 1
+ */
+$j: 1;
+@while($j <= 10) {
+  $margin: $j * 10;
+
+  @if ($j % 2 == 0) {
+    .margin-#{$margin} {
+      margin-bottom: #{$margin}px;
+    }
+  }
+
+  $j: $j + 1;
+}
+
+/*
+ * each
+ */
+@each $social in $socials {
+  .social-#{$social} {
+    background: url("images/#{$social}.png")
+  }
+}
+
+@each $header, $size in (
+        (h1, $base-fontsize + 10),
+        (h2, $base-fontsize + 5),
+        (h3, $base-fontsize + 2),
+        (h4, $base-fontsize),
+        (h5, $base-fontsize - 2),
+) {
+  #{$header} {
+    font-size: $size;
+  }
+}
+
+/*
+ * der Rest vom Schützenfest
+ */
+
+img {
+  height: 60px;
 }
