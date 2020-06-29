@@ -1,7 +1,13 @@
+/*
+ * https://sass-lang.com/documentation
+ */
+
 //!   _ = not to be compiled as own source
 @import url("https://fonts.google.com/specimen/Nunito#standard-styles");
 @import "vars"; // no "_" needed
 @import "mixins";
+@use "sass:color";
+@use "sass:math";
 
 /*!
  * Variables baby
@@ -63,7 +69,7 @@ h5 {
 
 
 /*
- * For 1
+ * For 1 & extend
  */
 @for $i from 1 through 3 {
   .box#{$i} {
@@ -99,7 +105,7 @@ $j: 1;
   $j: $j + 1;
 }
 
-/*
+/*x
  * each
  */
 @each $social in $socials {
@@ -120,10 +126,18 @@ $j: 1;
   }
 }
 
+/**
+ * functions https://sass-lang.com/documentation/modules
+ */
+.functions {
+  //@debug ceil(4.9);
+  //@debug complement(white);
+}
+
+
 /*
  * der Rest vom Schützenfest
  */
-
 img {
   height: 60px;
 }

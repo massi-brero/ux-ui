@@ -1,5 +1,10 @@
 @charset "UTF-8";
+/*
+ * https://sass-lang.com/documentation
+ */
 @import url("https://fonts.google.com/specimen/Nunito#standard-styles");
+@use "sass:color";
+@use "sass:math";
 /*!
  * Variables baby
  */
@@ -50,7 +55,7 @@ h5 {
     background-color: #ffe5d3; }
 
 /*
- * For 1
+ * For 1 & extend
  */
 .box1 {
   /*!
@@ -148,7 +153,7 @@ h5 {
 .margin-100 {
   margin-bottom: 100px; }
 
-/*
+/*x
  * each
  */
 .social-facebook {
@@ -175,6 +180,9 @@ h4 {
 h5 {
   font-size: 14px; }
 
+/**
+ * functions https://sass-lang.com/documentation/modules
+ */
 /*
  * der Rest vom Schützenfest
  */
