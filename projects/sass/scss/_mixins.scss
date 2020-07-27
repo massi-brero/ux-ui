@@ -50,7 +50,6 @@
     $bgColor: lighten($primary-color, 40);
     @include transition(background, 1000ms, ease-out);
   } @else {
-    $border-radius: 10px;
     $bgColor: lighten($primary-color, 5);
     @include transition(background, 200ms, ease-in);
   }

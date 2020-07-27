@@ -1,5 +1,8 @@
 /*
  * https://sass-lang.com/documentation
+ * https://sass-lang.com/guide
+ * https://www.sassmeister.com/
+ * https://themefisher.com/sass-compiler/
  */
 
 //!   _ = not to be compiled as own source
@@ -110,7 +113,7 @@ $j: 1;
  */
 @each $social in $socials {
   .social-#{$social} {
-    background: url("images/#{$social}.png")
+    background: url("../images/#{$social}.png")
   }
 }
 
